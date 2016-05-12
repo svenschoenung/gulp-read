@@ -17,7 +17,7 @@
     "graceful-fs": "^4.1.4",
     "lazystream": "^1.0.0",
     "object-assign": "^4.1.0",
-    "strip-bom-buf": "^1.0.0",
+    "strip-bom": "^2.0.0",
     "strip-bom-stream": "^2.0.0",
     "through2": "^2.0.1"
   },
