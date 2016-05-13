@@ -48,12 +48,13 @@ function readStream(file, options, cb) {
 
 module.exports = function(opts) {
   var options = assign({
+    force:false,
     buffer:true,
     stripBOM:true
   }, opts);
 
   return through(function(file, enc, cb) {
-    if (!file.isNull()) {
+    if (!options.force && !file.isNull()) {
       return cb(null, file);
     }
   

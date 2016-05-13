@@ -54,6 +54,7 @@ Reads the contents for each vinyl file from disk. Files that already have `a fil
 **Options**
 
 * `buffer`: Whether or not the file contents should be a `Buffer`. Setting this to `false` will make `file.contents` a stream. (Default: `true`)
+* `force`: Whether or not to reread file contents if they already exist. (Default: `false`)
 * `stripBOM`: Whether or not to strip the BOM from file contents. (Default: `true`)
 
 ## License

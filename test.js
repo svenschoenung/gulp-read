@@ -22,19 +22,34 @@ describe('read()', function() {
     fs.unlink('test.link');
     fs.unlink('test.txt');
   });
-  it('should not read file contents if already present', function(done) {
-    var f;
+  it('should not reread file contents', function(done) {
+    var originalContents;
     vinylFs.src('test.txt')
       .pipe(through(function(file, enc, cb) {
-        f = file;
+        originalContents = file.contents;
         cb(null, file);
       }))
       .pipe(read())
       .pipe(through(function(file, enc, cb) {
-        expect(f.contents).to.be.instanceOf(Buffer);
-        expect(f.contents).to.equal(file.contents);
+        expect(file.contents).to.be.instanceOf(Buffer);
+        expect(file.contents === originalContents).to.equal(true);
 	done();
+      }));
+  });
+  it('should reread file contents if force option is true', function(done) {
+    var originalContents;
+    vinylFs.src('test.txt')
+      .pipe(through(function(file, enc, cb) {
+        originalContents = file.contents;
+        cb(null, file);
       }))
+      .pipe(read({force:true}))
+      .pipe(through(function(file, enc, cb) {
+        expect(file.contents).to.be.instanceOf(Buffer);
+        expect(file.contents.toString()).to.equal(originalContents.toString());
+        expect(file.contents === originalContents).to.equal(false);
+	done();
+      }));
   });
   it('should not read file contents if file is directory', function(done) {
     vinylFs.src('.', { read:false })
