@@ -45,6 +45,17 @@ In effect we never have to read the contents of files that haven't changed which
 
 Since this plugin is basically identical to the [`get-contents` module](https://github.com/gulpjs/vinyl-fs/blob/5cf7de1df6fc47886aaa72c1737490069e50ab3b/lib/src/get-contents/index.js) of `[vinyl-fs`](https://www.npmjs.com/package/vinyl-fs) it shouldn't make difference whether file contents are read by `gulp.src()` or `gulp-read`.
 
+## API
+
+### read([options])
+
+Reads the contents for each vinyl file from disk. Files that already have `a file.contents` property are passed through unchanged.
+
+**Options**
+
+* `buffer`: Whether or not the file contents should be a `Buffer`. Setting this to `false` will make `file.contents` a stream. (Default: `true`)
+* `stripBOM`: Whether or not to strip the BOM from file contents. (Default: `true`)
+
 ## License
 
 [MIT](LICENSE)
