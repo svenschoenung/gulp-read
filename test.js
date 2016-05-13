@@ -29,7 +29,7 @@ describe('read()', function() {
         cb(null, file);
       }))
       .pipe(read())
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(file.contents).to.be.instanceOf(Buffer);
         expect(file.contents === originalContents).to.equal(true);
 	done();
@@ -43,7 +43,7 @@ describe('read()', function() {
         cb(null, file);
       }))
       .pipe(read({force:true}))
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(file.contents).to.be.instanceOf(Buffer);
         expect(file.contents.toString()).to.equal(originalContents.toString());
         expect(file.contents === originalContents).to.equal(false);
@@ -57,7 +57,7 @@ describe('read()', function() {
 	cb(null, file);
       }))
       .pipe(read())
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(file.contents).to.equal(null);
 	done();
       }));
@@ -69,7 +69,7 @@ describe('read()', function() {
 	cb(null, file);
       }))
       .pipe(read())
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(file.contents).to.equal(null);
         expect(file.symlink).to.equal('test.txt');
 	done();
@@ -82,7 +82,7 @@ describe('read()', function() {
 	cb(null, file);
       }))
       .pipe(read())
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(file.contents.toString()).to.equal('abc123');
 	done();
       }));
@@ -94,7 +94,7 @@ describe('read()', function() {
 	cb(null, file);
       }))
       .pipe(read())
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(file.contents).to.be.instanceOf(Buffer);
         expect(file.contents.toString()).to.equal('abc123');
 	done();
@@ -107,7 +107,7 @@ describe('read()', function() {
 	cb(null, file);
       }))
       .pipe(read({ stripBOM:false }))
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(file.contents).to.be.instanceOf(Buffer);
         expect(file.contents.toString()).to.equal('\uFEFFabc123');
 	done();
@@ -120,7 +120,7 @@ describe('read()', function() {
 	cb(null, file);
       }))
       .pipe(read({ buffer:false }))
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(isStream(file.contents)).to.equal(true);
 	file.contents.pipe(concat(function(contents) {
           expect(contents.toString()).to.equal('abc123');
@@ -135,7 +135,7 @@ describe('read()', function() {
 	cb(null, file);
       }))
       .pipe(read({ buffer:false, stripBOM:false }))
-      .pipe(through(function(file, enc, cb) {
+      .pipe(through(function(file) {
         expect(isStream(file.contents)).to.equal(true);
 	file.contents.pipe(concat(function(contents) {
           expect(contents.toString()).to.equal('\uFEFFabc123');
