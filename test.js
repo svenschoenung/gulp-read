@@ -61,6 +61,18 @@ describe('read()', function() {
 	done();
       }));
   });
+  it('should not read file contents if file is followed symlink', function(done) {
+    vinylFs.src('test.link', { read:false })
+      .pipe(through(function(file, enc, cb) {
+        expect(file.contents).to.equal(null);
+	cb(null, file);
+      }))
+      .pipe(read())
+      .pipe(through(function(file, enc, cb) {
+        expect(file.contents.toString()).to.equal('abc123');
+	done();
+      }));
+  });
   it('should read file contents as buffer', function(done) {
     vinylFs.src('test.txt', { read:false })
       .pipe(through(function(file, enc, cb) {
@@ -117,7 +129,4 @@ describe('read()', function() {
 	}));
       }));
   });
-
-
-
 });
