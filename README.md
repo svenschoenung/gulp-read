@@ -16,7 +16,7 @@ Gulp plugin to read vinyl file contents.
 
 ## Usage
 
-Basically whenever you can get away with using `read:false` at the beginning of your stream, but you still need to the file contents at a later stage you should consider using `gulp-read`. Here's what a typical example might look like:
+Basically whenever you can get away with using `read:false` at the beginning of a stream, but you still need the file contents at a later stage. Here's what a typical example might look like:
 
 ```js
 var gulp = require('gulp');
@@ -43,13 +43,13 @@ In effect we never have to read the contents of files that haven't changed which
 
 ## Compatibiliy
 
-Since this plugin is basically identical to the [`get-contents` module](https://github.com/gulpjs/vinyl-fs/blob/5cf7de1df6fc47886aaa72c1737490069e50ab3b/lib/src/get-contents/index.js) of `[vinyl-fs`](https://www.npmjs.com/package/vinyl-fs) it shouldn't make difference whether file contents are read by `gulp.src()` or `gulp-read`.
+Since this plugin is basically identical to the [`get-contents` module](https://github.com/gulpjs/vinyl-fs/blob/5cf7de1df6fc47886aaa72c1737490069e50ab3b/lib/src/get-contents/index.js) of [`vinyl-fs`](https://www.npmjs.com/package/vinyl-fs) it shouldn't make a difference whether file contents are read by `gulp.src()` or `gulp-read`.
 
 ## API
 
 ### read([options])
 
-Reads the contents for each vinyl file from disk. Files that already have `a file.contents` property are passed through unchanged.
+Reads the contents for each vinyl file from disk.
 
 **Options**
 
