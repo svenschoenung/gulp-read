@@ -9,7 +9,6 @@ var read = require('./index.js');
 var fs = require('graceful-fs');
 var vinylFs = require('vinyl-fs');
 var through = require('through2').obj;
-var assign = require('object-assign');
 var isStream = require('isstream');
 var concat = require('concat-stream');
 
