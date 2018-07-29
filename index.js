@@ -1,7 +1,7 @@
 var through = require('through2').obj;
 var fs = require('graceful-fs');
 var lazystream = require('lazystream');
-var stripBomFromBuffer = require('strip-bom');
+var stripBomFromBuffer = require('strip-bom-buf');
 var stripBomFromStream = require('strip-bom-stream');
 var assign = require('object-assign');
 
