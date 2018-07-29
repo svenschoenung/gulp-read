@@ -63,7 +63,9 @@ describe('read()', function() {
       }));
   });
   it('should not read file contents if file is symlink', function(done) {
-    vinylFs.src('test.link', { read:false, followSymlinks:false })
+    // followSymlinks: vinyl-fs: 2.x
+    // resolveSymlinks: vinyl-fs: 3.x
+    vinylFs.src('test.link', { read:false, followSymlinks:false, resolveSymlinks:false })
       .pipe(through(function(file, enc, cb) {
         expect(file.contents).to.equal(null);
 	cb(null, file);
