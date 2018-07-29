@@ -1,7 +1,7 @@
 {
   "name": "gulp-read",
   "description": "Gulp plugin to read vinyl file contents",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": {
     "name": "Sven Schönung <sven.schoenung@gmail.com> (http://sven.schoenung.org/)"
   },
