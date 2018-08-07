@@ -17,6 +17,8 @@
     "graceful-fs": "^4.1.4",
     "lazystream": "^1.0.0",
     "object-assign": "^4.1.0",
+    "strip-bom-buf": "^1.0.0",
+    "strip-bom-stream": "^3.0.0",
     "through2": "^2.0.1"
   },
   "devDependencies": {
@@ -28,8 +30,6 @@
     "istanbul": "^0.4.2",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.0.0",
-    "strip-bom-buf": "^1.0.0",
-    "strip-bom-stream": "^3.0.0",
     "vinyl-fs": "^3.0.3"
   },
   "scripts": {
