@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/svenschoenung/gulp-read.svg)](https://david-dm.org/svenschoenung/gulp-read)
 [![devDependency Status](https://david-dm.org/svenschoenung/gulp-read/dev-status.svg)](https://david-dm.org/svenschoenung/gulp-read?type=dev)
 [![Code Climate](https://codeclimate.com/github/svenschoenung/gulp-read/badges/gpa.svg)](https://codeclimate.com/github/svenschoenung/gulp-read)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/ca65c19be0604984bcb00eb1f9a85c1e)](https://www.codacy.com/app/svenschoenung/gulp-read)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/ca65c19be0604984bcb00eb1f9a85c1e)](https://www.codacy.com/app/svenschoenung/gulp-read) [![Greenkeeper badge](https://badges.greenkeeper.io/svenschoenung/gulp-read.svg)](https://greenkeeper.io/)
 
 # gulp-read
 
