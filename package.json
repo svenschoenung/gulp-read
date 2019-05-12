@@ -18,7 +18,7 @@
     "lazystream": "^1.0.0",
     "object-assign": "^4.1.0",
     "strip-bom-buf": "^1.0.0",
-    "strip-bom-stream": "^3.0.0",
+    "strip-bom-stream": "^4.0.0",
     "through2": "^3.0.0"
   },
   "devDependencies": {
